@@ -1,0 +1,18 @@
+{{outlet}}
+
+  {{#if isActive}}
+
+    <div class="col-md-12">
+      {{#each post in controller}}
+        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+          <div class="listing listing-radius">
+            <div class="listing-content">
+              {{#link-to 'post' post}}<h3 class="lead post-title">{{post.title}}</h3>{{/link-to}}
+              <p>{{post.body}}</p>
+            </div>
+          </div>
+        </div>
+      {{/each}}
+    </div> 
+
+  {{/if}}

@@ -27,6 +27,17 @@ module.exports = function(environment) {
     ENV.APP.LOG_VIEW_LOOKUPS = true;
   }
 
+   ENV.contentSecurityPolicy = {
+    'default-src': "'none'",
+    'script-src': "'self' 'unsafe-eval' http://localhost:35729",
+    'font-src': "'self'",
+    'connect-src': "'self' ws://localhost:35729/livereload",
+    'img-src': "'self' http://placehold.it",
+    'style-src': "'self' 'unsafe-inline'",
+    'media-src': "'self'"
+  }
+
+
   if (environment === 'test') {
     // Testem prefers this...
     ENV.baseURL = '/';
