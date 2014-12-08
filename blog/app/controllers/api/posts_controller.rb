@@ -1,6 +1,15 @@
 class Api::PostsController < ApplicationController
-  before_action :set_posts, only: [:show, :update,:destroy]
+  before_action :set_posts, only: [:show, :update]
   respond_to :json
+
+  def search
+    if params[:search].present?
+      @post = Post.where("title like :search OR body like :search OR post_path like :search", search: "%#{params[:search]}%")
+    else
+      @post = Post.all  
+    end
+    render json: @post, status: 200
+  end
 
   def index
     @posts = Post.all
@@ -29,6 +38,7 @@ class Api::PostsController < ApplicationController
   end
 
   def destroy
+    @post = Post.find(params[:id])
     @post.destroy
     render json: @post, status: 204
   end
@@ -38,7 +48,7 @@ class Api::PostsController < ApplicationController
   #######
 
   def set_posts
-    @post = Post.find_by_post_path(params[:id])
+    @post = Post.find_by_post_path(params[:post][:post_path])
   end
 
   def post_params

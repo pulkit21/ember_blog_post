@@ -34,7 +34,8 @@ module.exports = function(environment) {
     'connect-src': "'self' ws://localhost:35729/livereload",
     'img-src': "'self' http://placehold.it",
     'style-src': "'self' 'unsafe-inline'",
-    'media-src': "'self'"
+    'media-src': "'self'",
+    'report-uri': "http://localhost:4200"
   }
 
 
