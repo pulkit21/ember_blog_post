@@ -14,6 +14,7 @@ Router.map(function() {
     this.route('new');
   });
   this.route('not-found', { path: '/*path' });
+  this.route('search', {path: '/search/:query'});
 });
 
 export default Router;

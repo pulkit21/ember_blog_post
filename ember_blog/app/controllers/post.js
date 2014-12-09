@@ -12,9 +12,17 @@ export default Ember.ObjectController.extend({
 
     delete: function(){
       var self = this;
-      this.get('model').destroyRecord().then(function(){
-        self.transitionToRoute('posts');
+      this.store.find('post', this.get('model').get('id')).then(function (record){
+        var result = confirm("Do you really want to delete?");
+        if (result === true){
+          record.destroyRecord().then(function(){
+            self.transitionToRoute('posts');
+          });
+        }
       });
+      // this.get('model').destroyRecord().then(function(){
+      //   self.transitionToRoute('posts');
+      // });
     }
   }
 });

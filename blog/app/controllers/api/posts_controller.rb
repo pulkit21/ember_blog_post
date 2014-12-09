@@ -1,5 +1,5 @@
 class Api::PostsController < ApplicationController
-  before_action :set_posts, only: [:show, :update]
+  before_action :set_posts, only: [:update]
   respond_to :json
 
   def search
@@ -26,6 +26,7 @@ class Api::PostsController < ApplicationController
   end
 
   def show
+    @post = Post.find_by_post_path(params[:id])
     render json: @post, status: 200
   end
 

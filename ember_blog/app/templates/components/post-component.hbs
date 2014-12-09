@@ -1,0 +1,12 @@
+<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+  <div class="listing listing-radius">
+    <div class="listing-content">
+      {{#link-to 'post' post}}<h3 class="lead post-title">{{post.title}}</h3>{{/link-to}}
+      <p class="truncate_me">{{post.body}}</p>{{#link-to 'post' post}}<p>Read More</p>{{/link-to}}
+    </div>
+    <div class="row blog-show-page">
+      <div class="blog-post-author">
+      </div>
+    </div>  
+  </div>
+</div>
